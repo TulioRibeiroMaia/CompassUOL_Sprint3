@@ -5,7 +5,7 @@ Avaliação Sprint3 Progama de bolsas CompassUOL
 
 Foi criada uma API REST para listar, cadastrar, atualizar e deletar os Estados do Brasil.
 
-#Endpoints:
+# Endpoints:
 
 ## GET ("/api/states") 
 - Lista todos os Estados presentes no banco de dados, podendo ser feita o filtro por região. Ex.: "localhost:8080/api/states?regiao=Nordeste";
