@@ -26,7 +26,7 @@ Exemplo de informações que precisam ser passadas para cadastrar um novo estado
 
 >[!NOTE]
 >
->Observação: As regiões permitidas e pré-definidas para cadastro são:
+>As regiões permitidas e pré-definidas para cadastro são:
 
 - Norte;
 - Nordeste;
@@ -34,17 +34,17 @@ Exemplo de informações que precisam ser passadas para cadastrar um novo estado
 - Sul;
 - Sudeste.
 
-##GET ("/api/states/{id}")
+## GET ("/api/states/{id}")
 
-- Lista os Estados conforme o ID que o usuário indicar na URL. Ex.: "http://localhost:8080/api/states/1".
+Lista os Estados conforme o ID que o usuário indicar na URL. Ex.: "http://localhost:8080/api/states/1".
 
-##PUT("/api/states/{id}") 
+## PUT("/api/states/{id}") 
 
-- Atualiza os dados dos Estados conforme o ID que o usuário indicar na URL. Ex: "http://localhost:8080/api/states/15".
+Atualiza os dados dos Estados conforme o ID que o usuário indicar na URL. Ex: "http://localhost:8080/api/states/15".
 
 >[!NOTE]
 >
->Observação: O usuário precisa informar os campos abaixo para que a requisição de atualização seja concluída:
+>O usuário precisa informar os campos abaixo para que a requisição de atualização seja concluída:
 
 - {
 - "name": "Novo Estado",
@@ -54,6 +54,6 @@ Exemplo de informações que precisam ser passadas para cadastrar um novo estado
 - "area": 999999.99
 - },
 
-##DELETE("/api/states/{id}") 
+## DELETE("/api/states/{id}") 
 
-- Deleta os Estados conforme o ID que o usuário indicar na URL. Ex: "http://localhost:8080/api/states/13".
+Deleta os Estados conforme o ID que o usuário indicar na URL. Ex: "http://localhost:8080/api/states/13".
