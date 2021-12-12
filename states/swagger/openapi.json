@@ -1,0 +1,226 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API de Estados",
+    "description": "API de informação dos Estados do Brasil para saber os seus respectivos nomes capitais, população e área. Esta API permite listar, atualizar, cadastrar e deletar os Estados.",
+    "version": "0.0.1",
+    "license": {
+      "name": "Lincença: GPLv3",
+      "url": "https://www.gnu.org/licenses/gpl-3.0.html"
+    }
+  },
+  "externalDocs": {
+    "description": "Código da API de Estados",
+    "url": "https://github.com/TulioRibeiroMaia/Compass_UOL_Sprint3"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "API com infraestutura local"
+    }
+  ],
+  "security": [
+    {
+      "auth": []
+    }
+  ],
+  "paths": {
+    "/api/states": {
+      "get": {
+        "summary": "Lista todos os Estados cadastrados no banco de dados",
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/State"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Cadastra um novo Estado",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/State"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/State"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/states/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "schema": {
+            "type": "integer"
+          },
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Recupera uma Estado através de seu ID",
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/State_id"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "example": "Not Found"
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Atualiza um Estado através do ID informado",
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/State_id"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "example": "Not Found"
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deleta um Estado através ID informado",
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/State_id"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "example": "Not Found"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "State": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "region": {
+            "type": "string",
+            "enum": [
+              "Norte",
+              "Nordeste",
+              "Centro_Oeste",
+              "Sul",
+              "Sudeste"
+            ]
+          },
+          "population": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "capital": {
+            "type": "string"
+          },
+          "area": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "State_id": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "region": {
+            "type": "string",
+            "enum": [
+              "Norte",
+              "Nordeste",
+              "Centro_Oeste",
+              "Sul",
+              "Sudeste"
+            ]
+          },
+          "population": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "capital": {
+            "type": "string"
+          },
+          "area": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "auth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}
